@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import thunk from 'redux-thunk'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import { counter} from './index.redux'
+const store = createStore(counter, applyMiddleware(thunk))
 
-import { createStore } from 'redux'
-import { counter, addGUN, reduceGUN } from './index.redux'
-const store = createStore(counter)
-
-function render() {
-	ReactDOM.render(<App store={store} addGUN={addGUN} reduceGUN={reduceGUN}/>, document.getElementById('root'));
-}
-render()
-registerServiceWorker();
-
-store.subscribe(render)
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root'))
+registerServiceWorker()

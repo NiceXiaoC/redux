@@ -21,10 +21,10 @@ class App extends React.Component {
     return(
       <div>
 				<p>当前状态值:{num}</p>
-				<Button type="primary" onClick={addGUN} style={this.state.styleCss}>加++</Button>
-				<Button type="primary" onClick={reduceGUN} style={this.state.styleCss}>减--</Button>
+				<Button type="primary" onClick={()=>{store.dispatch(addGUN())}} style={this.state.styleCss}>加++</Button>
+				<Button type="primary" onClick={()=>{store.dispatch(reduceGUN())}} style={this.state.styleCss}>减--</Button>
 				{/*异步*/}
-				<Button type="primary" onClick={addGunAsync} style={this.state.styleCss}>一秒后++</Button>
+				<Button type="primary" onClick={()=>{store.dispatch(addGunAsync())}} style={this.state.styleCss}>一秒后++</Button>
 			</div>
     )
   }
