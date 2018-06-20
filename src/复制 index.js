@@ -10,11 +10,10 @@ import { Provider } from 'react-redux'
 import {BrowserRouter,Route,Link,Switch} from 'react-router-dom'
 
 
-import { createStore, applyMiddleware ,combineReducers} from 'redux'
+
+import { createStore, applyMiddleware } from 'redux'
 import { counter} from './index.redux'
-import { auth } from './Auth.redux'
-const reducer = combineReducers({a:counter,b:auth})
-const store = createStore(reducer , applyMiddleware(thunk))
+const store = createStore(counter, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>

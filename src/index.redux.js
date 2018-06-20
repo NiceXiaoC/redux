@@ -4,13 +4,14 @@ const ADD_GUN = 'add'
 const REDUCE = 'reduce'
 
 export function counter(state = 0, action) {
+	console.log(action, '99999999999')
   switch(action.type) {
     case ADD_GUN:
       return state + 1
     case REDUCE:
       return state - 1
     default:
-      return 10
+      return 100
   }
 }
 
