@@ -20,7 +20,7 @@ import { addGUN, reduceGUN, addGunAsync } from './index.redux'
 @connect(
 	// 需要的state熟悉放到props中
 	state => ({
-		num: state
+		num: state.a
 	}), 
 	// 吧需要的方法放到props里面,自动dispatch
 	{

@@ -6,7 +6,7 @@ import axiox from 'axios'
 
 @connect(
 	state => ({
-		user: state.b
+		user: state.auth
 	}), {
 		login,
 		getUserData
@@ -34,9 +34,10 @@ class Login extends React.Component {
 		//		})
 	}
 	render() {
-		console.log(this.props)
+		console.log(this.props.user, 9999)
 		return(
 			<div>
+			  {this.props.user.isAuth ? <Redirect to="/" /> : null}
 				<h2>我的名字{this.props.user.user}</h2>
 				<button onClick={this.props.login}>登录</button>
 			</div>
